@@ -39,7 +39,7 @@
         // Collect errrors
         $errors = "Error: " . $_FILES["picture"]["error"];
         // Send email to notify for uploads errors
-        mail("info@thatsmy.name","Tourismpo - Errori upload",$errori);
+        mail("info@thatsmy.name","Upload Errors",$errori);
         exit(set_notify($errors));
     }
     
