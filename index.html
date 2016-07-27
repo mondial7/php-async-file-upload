@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+        
+        <title>Async File Uplaod with Php & JS</title>
+        
+        <script src="upload.js"></script>
+        
+    </head>
+    <body>
+        
+        <h1>Async File Uplaod with Php & JS</h1>
+        
+        <form action="upload__controller.php" method="post" enctype="multipart/form-data" onsubmit="return form_submit();" target="notification_box">
+            <p>Upload Picture</p>
+            <input type="file" accept="image/*" name="picture" id="file_input">
+            <input type="submit" value="Upload" name="picture_submit">
+        </form>
+        
+        <img src="" alt="Target Picture - Here will be visible the uploaded picture" id="target_picture" />
+        
+        <div id="loader_wrapper" class="hidden">
+            <div id="loader"></div>
+        </div>
+        
+        <!-- Need for async uploads, and used as upload notification box -->
+        <iframe id="notification_box" name="notification_box" src=""></iframe>
+        
+        
+        <!-- EXTRA -->
+        <br><button><a href="./delete/">DELETE UPLOADED PICTURES</a></button>
+        
+    </body>
+</html>
