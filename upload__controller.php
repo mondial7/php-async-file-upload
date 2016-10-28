@@ -1,5 +1,6 @@
 <?php
     
+    // Set upload directory
     $dir = "./uploads/";
     
     // Function to return a js callback to parent window (the my_iframe in index.html)

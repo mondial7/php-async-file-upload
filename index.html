@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        
-        <link rel="stylesheet" href="style.css" type="text/css" media="all" />
-        
+
+        <!-- "Just some stuff to make the page looking better on mobile" -->
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
-        
         <title>Async File Uplaod with Php & JS</title>
         
+        <!-- Main things in the stylesheet are: loader and notification_box -->
+        <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+
+        <!-- The js mainly manage the upload callbacks -->
         <script src="upload.js"></script>
         
     </head>
@@ -16,24 +17,36 @@
         
         <h1>Async File Uplaod with Php & JS</h1>
         
-        <form action="upload__controller.php" method="post" enctype="multipart/form-data" onsubmit="return form_submit();" target="notification_box">
+        <!-- Hint: attribute 'target' is the main character here
+             JS onsubmit triggers the loader and does 
+             some trivial client checks -->
+        <form action="upload__controller.php" 
+              method="post" 
+              enctype="multipart/form-data" 
+              onsubmit="return form_submit();" 
+              target="notification_box">
+
             <p>Upload Picture</p>
             <input type="file" accept="image/*" name="picture" id="file_input">
             <input type="submit" value="Upload" name="picture_submit">
+       
         </form>
         
+        <!-- TO IMPROVE: set a picture placeholder -->
         <img src="" alt="Target Picture - Here will be visible the uploaded picture" id="target_picture" />
         
+        <!-- Even if the upload is asynchronous many times makes sense
+             to prevent multiple uploads at the same time -->
+        <!-- TO IMPROVE: convert this loader to a loading bar and 
+                         disable only upload functionality letting the user
+                         surf your cool website -->
         <div id="loader_wrapper" class="hidden">
             <div id="loader"></div>
         </div>
         
-        <!-- Need for async uploads, and used as upload notification box -->
+        <!-- Needed for async uploads
+             Used as upload notification box: javascript callbacks -->
         <iframe id="notification_box" name="notification_box" src=""></iframe>
-        
-        
-        <!-- EXTRA -->
-        <br><button><a href="./delete/">DELETE UPLOADED PICTURES</a></button>
         
     </body>
 </html>
